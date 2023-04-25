@@ -1,0 +1,83 @@
+:root {
+  font-size: 24px;
+  font-family: "DXHflL";
+  color: #486284;
+  --point_c: #486284;
+  --basic_c: #fffffc;
+}
+
+/* main 모달 */
+.modal {
+  /* border: 1px solid red; */
+  display: block;
+  position: fixed;
+  width: calc(100% - 900px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  background-image: url(../assets/img_bg2.jpg);
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+.closeBtn {
+  color: var(--point_c);
+  font-family: "DXHflM";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.closeBtn span,
+.closeBtn i {
+  font-size: 1rem;
+}
+.mainModal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mainModal .modalImgCon {
+  width: 150%;
+}
+.mainModal .modalImgCon img {
+  width: 100%;
+}
+.mainModal .modalText * {
+  margin: 1rem 1rem 1rem 0;
+}
+.mainModal .modalText strong {
+  font-family: "DXHflM";
+  margin: 0;
+}
+
+/* FacilityTabMenu 영역 */
+.tabCategory * {
+  color: var(--point_c);
+}
+
+/* 모바일 레이아웃 영역 */
+@media (max-width: 1000px) {
+  .modal {
+    width: calc(100% - 2rem);
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .mainModal {
+    width: 100%;
+    display: block;
+  }
+  .mainModal .modalImgCon {
+    width: 300px;
+  }
+  .mainModal .modalText * {
+    margin: 0.5rem 0;
+    font-size: 0.75rem;
+  }
+}

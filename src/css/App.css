@@ -1,0 +1,273 @@
+@charset "utf-8";
+@font-face {
+  font-family: "DXHflL";
+  src: url("../fonts/DXHflL.ttf");
+}
+@font-face {
+  font-family: "DXHflM";
+  src: url("../fonts/DXHflM.ttf");
+}
+@font-face {
+  font-family: "DXHflB";
+  src: url("../fonts/DXHflB.ttf");
+}
+
+:root {
+  font-size: 24px;
+  font-family: "DXHflL";
+  color: #486284;
+  --point_c: #486284;
+  --basic_c: #fffffc;
+}
+body {
+  background-image: url("../assets/img_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  color: var(--point_c);
+}
+.App {
+  overflow: hidden;
+}
+.mw {
+  border: 1px solid red;
+  max-width: 1600px;
+  width: calc(100% - 2rem);
+  margin: 0 auto 2rem;
+}
+
+/* 헤더 영역 */
+.hd {
+  padding: 1.5rem 0 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--point_c);
+}
+.hd .logo img {
+  width: 180px;
+}
+.hd .gnb {
+  display: flex;
+  justify-content: center;
+}
+.hd .gnb .facility,
+.hd .gnb .visit {
+  width: calc(100% / 2);
+  font-size: 32px;
+  color: var(--point_c);
+}
+
+/* Main 영역 */
+.main {
+  position: relative;
+}
+.mainTitle .mainbtn {
+  font-family: "DXHflL";
+  font-size: 24px;
+  color: var(--point_c);
+  outline: none;
+  border: 1px solid var(--point_c);
+  border-radius: 8px;
+  padding: 0.25rem 1rem;
+}
+.main .rights {
+  /* border: 1px solid red; */
+  width: 100%;
+  text-align: right;
+  margin-top: 1.5rem;
+  padding-right: 0.5rem;
+  white-space: nowrap;
+}
+
+.swiper {
+  width: 100%;
+}
+
+.swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+  /* border: 5px solid dodgerblue; */
+  height: 50px;
+  width: 150px;
+  left: auto;
+  bottom: auto;
+  top: 80%;
+  right: -2rem;
+  transform: rotate(90deg);
+}
+.swiper-pagination-bullet {
+  width: 0.5rem !important;
+  height: 0.5rem !important;
+  margin: 0.5rem 0 !important;
+  background-color: var(--basic_c) !important;
+  margin: 0 0.25rem !important;
+}
+.circleFlower {
+  position: absolute;
+  z-index: -10;
+}
+.circleFlower img {
+  width: 100%;
+}
+.circleFlower1 {
+  width: 50%;
+  top: 12%;
+  left: 0;
+}
+.circleFlower2 {
+  width: 30%;
+  top: -20%;
+  right: -15%;
+}
+
+/* 시설검색 영역 */
+.Facility .btnArea {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+.Facility .btnArea button {
+  width: calc(100% / 8 - 0.5rem);
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0;
+}
+.searchArea {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.secTitle {
+  width: 340px;
+}
+.secTitle h2 {
+  font-size: 64px;
+}
+.secTitle p {
+  margin: 1rem 0 4rem;
+}
+.secTitle img {
+  width: 100%;
+}
+.tabmenu {
+  width: calc(100% - 360px);
+}
+
+/* 모바일 레이아웃 영역 */
+@media (min-width: 651px) {
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .mainTitle {
+    width: 340px;
+    margin-right: 1rem;
+  }
+  .mainTitle h2 {
+    font-size: 64px;
+  }
+  .mainTitle .mainText {
+    padding-bottom: 1rem;
+  }
+
+  .swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden.mySwiper.slideCon {
+    /* border: 1px solid red; */
+    height: 600px;
+    width: calc(100% - 360px - 1rem);
+    border-radius: 2rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .imgCon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: -50%;
+    transform: translateY(50%);
+  }
+}
+
+@media (max-width: 650px) {
+  .swiper {
+    margin-top: 2rem;
+  }
+  .slideCon {
+    width: 100%;
+    /* display: none !important; */
+  }
+  .swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden.mySwiper.slideCon {
+    height: 400px;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .imgCon img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+    /* border: 5px solid dodgerblue; */
+    height: 50px;
+    width: 150px;
+    left: auto;
+    bottom: auto;
+    top: 65%;
+    right: -2rem;
+    transform: rotate(90deg);
+  }
+  .swiper-pagination-bullet {
+    width: 0.4rem !important;
+    height: 0.4rem !important;
+    margin: 0.5rem 0 !important;
+    background-color: var(--basic_c) !important;
+    margin: 0 0.25rem !important;
+  }
+  .circleFlower1 {
+    width: 80%;
+    top: 30%;
+    left: -20%;
+  }
+  .circleFlower2 {
+    width: 60%;
+    top: 0;
+    right: -30%;
+  }
+}
+@media (max-width: 400px) {
+  .hd .logo img {
+    width: 120px;
+  }
+  .hd .gnb {
+    margin-top: 1rem;
+  }
+  .hd .gnb .facilities,
+  .hd .gnb .visit {
+    font-size: 24px;
+  }
+  .mainTitle h2 {
+    font-size: 32px;
+  }
+  .mainTitle .mainText {
+    padding-bottom: 0.5rem;
+  }
+  .swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden.mySwiper.slideCon {
+    height: 230px;
+  }
+  .circleFlower1 {
+    width: 90%;
+    top: 40%;
+    left: -40%;
+  }
+  .circleFlower2 {
+    width: 70%;
+    top: 15%;
+    right: -30%;
+    transform: rotate(60deg);
+  }
+  .main .rights {
+    font-size: 1rem;
+    padding: 1rem 0 0;
+  }
+}
