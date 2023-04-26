@@ -57,9 +57,36 @@
   margin: 0;
 }
 
-/* FacilityTabMenu 영역 */
-.tabCategory * {
-  color: var(--point_c);
+/* TabList 영역 */
+.tabmenu {
+  margin-top: 1rem;
+}
+.cateBtns {
+  margin-top: 2rem;
+}
+.cateBtns button {
+  border-radius: 1rem 1rem 0 0;
+  border: 1px solid var(--point_c);
+  outline: none;
+  width: calc(80% / 5);
+  padding: 0.75rem;
+}
+.tabCon {
+  /* border: 1px solid red; */
+}
+.tabList {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.tabList span {
+  /* border: 1px solid blue; */
+  width: calc(100% / 6);
+  text-align: center;
+  padding: 0.5rem 0;
+}
+.tabList span:nth-of-type(3) {
+  flex-grow: 1;
 }
 
 /* 모바일 레이아웃 영역 */

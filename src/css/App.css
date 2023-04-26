@@ -18,6 +18,14 @@
   color: #486284;
   --point_c: #486284;
   --basic_c: #fffffc;
+  --btnColor1: #d95d5d;
+  --btnColor2: #e89232;
+  --btnColor3: #f2cf4c;
+  --btnColor4: #bed649;
+  --btnColor5: #73b4c2;
+  --btnColor6: #a0c4ff;
+  --btnColor7: #bdb2ff;
+  --btnColor8: #e48ebe;
 }
 body {
   background-image: url("../assets/img_bg.jpg");
@@ -117,38 +125,132 @@ body {
 }
 
 /* 시설검색 영역 */
-.Facility .btnArea {
-  /* border: 1px solid red; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1rem;
+.Facility {
+  position: relative;
 }
-.Facility .btnArea button {
-  width: calc(100% / 8 - 0.5rem);
-  outline: none;
-  border-radius: 0.5rem;
-  padding: 0.25rem 0;
-}
-.searchArea {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
+
 .secTitle {
   width: 340px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 .secTitle h2 {
   font-size: 64px;
 }
 .secTitle p {
-  margin: 1rem 0 4rem;
+  margin: 1rem 0 6rem;
 }
 .secTitle img {
   width: 100%;
 }
-.tabmenu {
-  width: calc(100% - 360px);
+
+.nav-tabs {
+  border: none;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-item {
+  /* border: 1px solid red; */
+  width: calc(100% / 8 - 1rem);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.nav-item:nth-of-type(1) {
+  border: 2px solid var(--btnColor1);
+}
+.nav-item:nth-of-type(2) {
+  border: 2px solid var(--btnColor2);
+}
+.nav-item:nth-of-type(3) {
+  border: 2px solid var(--btnColor3);
+}
+.nav-item:nth-of-type(4) {
+  border: 2px solid var(--btnColor4);
+}
+.nav-item:nth-of-type(5) {
+  border: 2px solid var(--btnColor5);
+}
+.nav-item:nth-of-type(6) {
+  border: 2px solid var(--btnColor6);
+}
+.nav-item:nth-of-type(7) {
+  border: 2px solid var(--btnColor7);
+}
+.nav-item:nth-of-type(8) {
+  border: 2px solid var(--btnColor8);
+}
+
+#uncontrolled-tab-example-tab-seoul {
+  color: var(--btnColor1);
+}
+#uncontrolled-tab-example-tab-gyeonggi {
+  color: var(--btnColor2);
+}
+#uncontrolled-tab-example-tab-gangwon {
+  color: var(--btnColor3);
+}
+#uncontrolled-tab-example-tab-chungcheong {
+  color: var(--btnColor4);
+}
+#uncontrolled-tab-example-tab-jeolla {
+  color: var(--btnColor5);
+}
+#uncontrolled-tab-example-tab-gyeongsang {
+  color: var(--btnColor6);
+}
+#uncontrolled-tab-example-tab-jeju {
+  color: var(--btnColor7);
+}
+#uncontrolled-tab-example-tab-MetCity {
+  color: var(--btnColor8);
+}
+
+.nav-item .nav-link {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.nav-item .nav-link.active {
+  border: none;
+}
+#uncontrolled-tab-example-tab-seoul.active {
+  color: var(--basic_c);
+  background-color: var(--btnColor1);
+}
+#uncontrolled-tab-example-tab-gyeonggi.active {
+  color: var(--basic_c);
+  background-color: var(--btnColor2);
+}
+#uncontrolled-tab-example-tab-gangwon.active {
+  color: var(--basic_c);
+  background-color: var(--btnColor3);
+}
+#uncontrolled-tab-example-tab-chungcheong.active {
+  color: var(--basic_c);
+  background-color: var(--btnColor4);
+}
+#uncontrolled-tab-example-tab-jeolla.active {
+  color: var(--basic_c);
+  background-color: var(--btnColor5);
+}
+#uncontrolled-tab-example-tab-gyeongsang.active {
+  color: var(--basic_c);
+  background-color: var(--btnColor6);
+}
+#uncontrolled-tab-example-tab-jeju.active {
+  color: var(--basic_c);
+  background-color: var(--btnColor7);
+}
+#uncontrolled-tab-example-tab-MetCity.active {
+  color: var(--basic_c);
+  background-color: var(--btnColor8);
+}
+
+.tab-content {
+  /* border: 1px solid blue; */
+  height: 500px;
+  margin-left: 340px;
 }
 
 /* 모바일 레이아웃 영역 */

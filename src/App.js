@@ -10,7 +10,7 @@ import Visit from "./pages/Visit";
 
 function App() {
   let urlname = useLocation().pathname;
-  console.log(urlname);
+  // console.log(urlname);
 
   return (
     <div className="App">
