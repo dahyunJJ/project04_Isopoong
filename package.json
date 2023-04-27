@@ -43,5 +43,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://dahyunjj.github.io/project04_Picnic/"
+  "homepage": "https://dahyunjj.github.io/project04_Picnic/",
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  }
 }

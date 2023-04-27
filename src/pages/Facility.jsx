@@ -3,10 +3,7 @@ import { useState } from "react";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
-import Pagination from "../component/Pagination";
-
-import FacilityTabMenu from "../component/FacilityTabMenu";
-import TabList from "../component/TabList";
+import TabList from "./TabList";
 
 function Facility() {
   let seoul = useSelector((state) => state.seoul);
@@ -18,11 +15,6 @@ function Facility() {
   let jeolla = useSelector((state) => state.jeolla);
   let MetCity = useSelector((state) => state.MetCity);
   // console.log(seoul);
-
-  const [page, setPage] = useState(1); //페이지
-  const limit = 8; // posts가 보일 최대한의 갯수
-  const offset = (page - 1) * limit;
-  const postsToShow = seoul.slice(offset, offset + limit);
 
   return (
     <>
@@ -46,13 +38,7 @@ function Facility() {
           className="mb-3 tabCategory"
         >
           <Tab eventKey="seoul" title="서울">
-            <TabList list={seoul} item={postsToShow} />
-            <Pagination
-              page={page}
-              setPage={setPage}
-              limit={limit}
-              totalCount={seoul.length}
-            />
+            <TabList list={seoul} />
           </Tab>
           <Tab eventKey="gyeonggi" title="경기">
             <TabList list={gyeonggi} />

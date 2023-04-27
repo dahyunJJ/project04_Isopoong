@@ -59,34 +59,85 @@
 
 /* TabList 영역 */
 .tabmenu {
+  /* border: 1px solid red; */
   margin-top: 1rem;
 }
 .cateBtns {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 .cateBtns button {
   border-radius: 1rem 1rem 0 0;
   border: 1px solid var(--point_c);
+  border-bottom: transparent;
   outline: none;
   width: calc(80% / 5);
   padding: 0.75rem;
+  color: var(--point_c);
 }
 .tabCon {
-  /* border: 1px solid red; */
+  border: 1px solid var(--point_c);
+  height: 510px;
+  border-radius: 0 1rem 0 0;
+  padding: 1rem 0;
 }
 .tabList {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 .tabList span {
-  /* border: 1px solid blue; */
   width: calc(100% / 6);
   text-align: center;
   padding: 0.5rem 0;
 }
 .tabList span:nth-of-type(3) {
   flex-grow: 1;
+}
+
+.detailBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Pagination 영역 */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% / 2);
+  margin: 1rem auto 0;
+}
+.page-item {
+  margin: 0;
+}
+.page-link {
+  background-color: transparent;
+  border: none;
+  color: var(--point_c);
+  padding: 0;
+}
+.pagination button,
+.page-item button {
+  color: var(--point_c);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0.25rem;
+}
+.active > .page-link,
+.page-link.active,
+.page-link.focus,
+.page-link.focus:hover {
+  z-index: 3;
+  color: var(--point_c);
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  font-weight: bold;
 }
 
 /* 모바일 레이아웃 영역 */

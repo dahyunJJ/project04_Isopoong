@@ -5,7 +5,7 @@ import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import Modal from "../component/Modal";
+import Modal from "./Modal";
 
 function Main() {
   const [modalOpen, setModalOpen] = useState(false);
