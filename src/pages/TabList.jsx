@@ -9,7 +9,6 @@ import Pagination from "react-bootstrap/Pagination";
 function TabList({ list }) {
   //
   const [activePage, setActivePage] = useState(1);
-
   const itemsPerPage = 7;
 
   const indexOfLastItem = activePage * itemsPerPage;
