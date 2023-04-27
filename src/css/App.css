@@ -29,7 +29,7 @@
 }
 body {
   background-image: url("../assets/img_bg.jpg");
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-position: top center;
   color: var(--point_c);
 }
@@ -37,7 +37,7 @@ body {
   overflow: hidden;
 }
 .mw {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   max-width: 1600px;
   width: calc(100% - 2rem);
   margin: 0 auto 2rem;
@@ -151,7 +151,6 @@ body {
   justify-content: space-between;
 }
 .nav-item {
-  /* border: 1px solid red; */
   width: calc(100% / 8 - 1rem);
   border-radius: 0.5rem;
   overflow: hidden;
@@ -249,8 +248,62 @@ body {
 
 .tab-content {
   /* border: 1px solid blue; */
-  height: 500px;
-  margin-left: 340px;
+  margin-left: 360px;
+}
+
+/* Detail 영역 */
+.breadcrumbs a {
+  display: inline-block;
+}
+.breadcrumbs a::after {
+  content: ">";
+  padding: 0 0.5rem;
+}
+
+.areaInfo {
+  /* border: 1px solid green; */
+  margin-top: 2rem;
+  position: relative;
+}
+.areaInfo h2,
+.NearbyArea h2 {
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  font-size: 1.5rem;
+  border: 1px solid var(--btnColor5);
+  background-color: var(--btnColor5);
+  border-radius: 16px 50px 50px 0;
+  color: var(--basic_c);
+  width: 300px;
+  padding: 0 1rem;
+}
+.areaCon {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem;
+  background-color: #fffffc80;
+  border-radius: 16px;
+}
+.areaCon_list {
+  margin-top: 1rem;
+  border: 1px solid green;
+  flex-grow: 1;
+  margin-left: 2rem;
+}
+
+.NearbyArea {
+  position: relative;
+  margin-top: 4rem;
+}
+.NearbyArea h2 {
+  border: 1px solid var(--btnColor8);
+  background-color: var(--btnColor8);
+}
+
+.NearbyArea_list {
+  background-color: #fffffc80;
 }
 
 /* 모바일 레이아웃 영역 */
@@ -335,6 +388,11 @@ body {
     width: 60%;
     top: 0;
     right: -30%;
+  }
+
+  /* Detail 영역 */
+  .areaCon {
+    display: block;
   }
 }
 @media (max-width: 400px) {
