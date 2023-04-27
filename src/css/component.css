@@ -11,13 +11,14 @@
   /* border: 1px solid red; */
   display: block;
   position: fixed;
-  width: calc(100% - 900px);
+  width: 800px;
+  height: 400px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
-  padding: 20px;
-  border-radius: 5px;
+  padding: 2rem;
+  border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   background-image: url(../assets/img_bg2.jpg);
   background-position: top right;
@@ -44,13 +45,13 @@
   align-items: center;
 }
 .mainModal .modalImgCon {
-  width: 150%;
+  width: 100%;
 }
 .mainModal .modalImgCon img {
   width: 100%;
 }
 .mainModal .modalText * {
-  margin: 1rem 1rem 1rem 0;
+  margin: 1rem 0;
 }
 .mainModal .modalText strong {
   font-family: "DXHflM";
@@ -60,14 +61,17 @@
 /* TabList 영역 */
 .tabmenu {
   /* border: 1px solid red; */
+  /* border: 1px solid red; */
   margin-top: 1rem;
 }
 .cateBtns {
+  margin-top: 1.5rem;
   margin-top: 1.5rem;
 }
 .cateBtns button {
   border-radius: 1rem 1rem 0 0;
   border: 1px solid var(--point_c);
+  border-bottom: transparent;
   border-bottom: transparent;
   outline: none;
   width: calc(80% / 5);
@@ -79,11 +83,16 @@
   height: 510px;
   border-radius: 0 1rem 0 0;
   padding: 1rem 0;
+  border: 1px solid var(--point_c);
+  height: 510px;
+  border-radius: 0 1rem 0 0;
+  padding: 1rem 0;
 }
 .tabList {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  position: relative;
   position: relative;
 }
 .tabList span {
@@ -140,10 +149,64 @@
   font-weight: bold;
 }
 
+.detailBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Pagination 영역 */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% / 2);
+  margin: 1rem auto 0;
+}
+.page-item {
+  margin: 0;
+}
+.page-link {
+  background-color: transparent;
+  border: none;
+  color: var(--point_c);
+  padding: 0;
+}
+.pagination button,
+.page-item button {
+  color: var(--point_c);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0.25rem;
+}
+.active > .page-link,
+.page-link.active,
+.page-link.focus,
+.page-link.focus:hover {
+  z-index: 3;
+  color: var(--point_c);
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  font-weight: bold;
+}
+
+/* Map 영역 */
+#map {
+  border: 1px solid red;
+  margin-top: 1rem;
+  width: 500px;
+  height: 400px;
+}
+
 /* 모바일 레이아웃 영역 */
 @media (max-width: 1000px) {
   .modal {
     width: calc(100% - 2rem);
+    height: 500px;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -152,7 +215,8 @@
     display: block;
   }
   .mainModal .modalImgCon {
-    width: 300px;
+    width: calc(100% - 1rem);
+    margin: auto;
   }
   .mainModal .modalText * {
     margin: 0.5rem 0;

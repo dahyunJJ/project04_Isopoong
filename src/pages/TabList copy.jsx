@@ -1,5 +1,4 @@
-function TabList({ list, item }) {
-  console.log(list);
+function TabList({ list }) {
   return (
     <>
       <section className="tabmenu">

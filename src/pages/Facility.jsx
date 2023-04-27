@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
@@ -14,7 +13,6 @@ function Facility() {
   let jeju = useSelector((state) => state.jeju);
   let jeolla = useSelector((state) => state.jeolla);
   let MetCity = useSelector((state) => state.MetCity);
-  // console.log(seoul);
 
   return (
     <>
