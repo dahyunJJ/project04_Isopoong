@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Pagination from "react-bootstrap/Pagination";
 
@@ -9,6 +9,7 @@ import Pagination from "react-bootstrap/Pagination";
 function TabList({ list }) {
   //
   const [activePage, setActivePage] = useState(1);
+
   const itemsPerPage = 7;
 
   const indexOfLastItem = activePage * itemsPerPage;
