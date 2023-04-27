@@ -37,7 +37,7 @@ body {
   overflow: hidden;
 }
 .mw {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   max-width: 1600px;
   width: calc(100% - 2rem);
   margin: 0 auto 2rem;

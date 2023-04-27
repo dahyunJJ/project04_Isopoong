@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Pagination from "react-bootstrap/Pagination";
 
+// 수정 필요 : 페이지 버튼 자동으로 1로 돌아오게, 버튼 길이 조절
+
 function TabList({ list }) {
   //
   const [activePage, setActivePage] = useState(1);
@@ -11,13 +13,13 @@ function TabList({ list }) {
 
   const indexOfLastItem = activePage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentData = list.slice(indexOfFirstItem, indexOfLastItem);
-
-  const totalPages = Math.ceil(list.length / itemsPerPage);
   const startIndex = (activePage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
+
+  const totalPages = Math.ceil(list.length / itemsPerPage);
   const pageData = list.slice(startIndex, endIndex);
-  console.log(pageData);
+
+  const [currentData, setCurrentData] = useState(list);
 
   const MAX_PAGES_TO_SHOW = 10; // 최대 페이지 수
   const GROUP_SIZE = 10; // 그룹당 페이지 수
@@ -85,34 +87,70 @@ function TabList({ list }) {
     pageGroups = [...prevGroup, ...currentGroup, ...nextGroup];
   }
 
+  // 카테고리 분류
+  let exhibition = list.filter((a) => a["카테고리2"] === "전시/기념관");
+  let movie = list.filter((a) => a["카테고리2"] === "영화/연극/공연");
+  let tour = list.filter((a) => a["카테고리2"] === "관광지");
+  let scenicspots = list.filter((a) => a["카테고리2"] === "명승지");
+  console.log(tour);
+
   return (
     <>
       <section className="tabmenu">
         <div className="cateBtns">
-          <button>전체</button>
-          <button>전시/기념관</button>
-          <button>영화/연극/공연</button>
-          <button>관광지</button>
-          <button>명승지</button>
+          <button
+            onClick={() => {
+              setCurrentData(list);
+            }}
+          >
+            전체
+          </button>
+          <button
+            onClick={() => {
+              setCurrentData(exhibition);
+            }}
+          >
+            전시/기념관
+          </button>
+          <button
+            onClick={() => {
+              setCurrentData(movie);
+            }}
+          >
+            영화/연극/공연
+          </button>
+          <button
+            onClick={() => {
+              setCurrentData(tour);
+            }}
+          >
+            관광지
+          </button>
+          <button
+            onClick={() => {
+              setCurrentData(scenicspots);
+            }}
+          >
+            명승지
+          </button>
         </div>
         <div className="tabCon">
-          {currentData.map((item, i) => (
-            <div className="tabList" key={i}>
-              <span>{item["시도 명칭"]}</span>
-              <span>{item["시설명"]}</span>
-              <span>{item["도로명주소"]}</span>
-              <span>{item["전화번호"]}</span>
-              <span>{item["입장 가능 나이"]}</span>
-              <Link
-                to={`/detail/${item["시설명"]}`}
-                className="detailBtn"
-              ></Link>
-            </div>
-          ))}
+          {currentData
+            .slice(indexOfFirstItem, indexOfLastItem)
+            .map((item, i) => (
+              <div className="tabList" key={i}>
+                <span>{item["시도 명칭"]}</span>
+                <span>{item["시설명"]}</span>
+                <span>{item["도로명주소"]}</span>
+                <span>{item["전화번호"]}</span>
+                <span>{item["입장 가능 나이"]}</span>
+                <Link
+                  to={`/detail/${item["시설명"]}`}
+                  className="detailBtn"
+                ></Link>
+              </div>
+            ))}
           <div>
-            {/* {pageData.map((item, i) => (
-              <div key={i}>{item}</div>
-            ))} */}
             <Pagination>
               <Pagination.First onClick={() => setActivePage(1)} />
               <Pagination.Prev
