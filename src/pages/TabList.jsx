@@ -4,8 +4,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Pagination from "react-bootstrap/Pagination";
 
-// 수정 필요 : 페이지 버튼 자동으로 1로 돌아오게, 버튼 길이 조절
-
 function TabList({ list }) {
   // console.log(list);
 
@@ -149,7 +147,7 @@ function TabList({ list }) {
                 <span>{item["전화번호"]}</span>
                 <span>{item["입장 가능 나이"]}</span>
                 <Link
-                  to={`/detail/${item["시설명"]}`}
+                  to={`/detail/${encodeURIComponent(item["시설명"])}`}
                   className="detailBtn"
                 ></Link>
               </div>
