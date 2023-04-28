@@ -9,6 +9,21 @@ import jejuData from "../data/jejuData";
 import jeollaData from "../data/jeollaData";
 import MetCityData from "../data/MetCityData";
 
+let allLocaData = [
+  ...seoulData,
+  ...gyeonggiData,
+  ...chungcheongData,
+  ...gangwonData,
+  ...gyeongsangData,
+  ...jejuData,
+  ...jeollaData,
+  ...MetCityData,
+];
+const data = createSlice({
+  name: "data",
+  initialState: allLocaData,
+});
+
 let seoul = createSlice({
   name: "seoul",
   initialState: seoulData,
@@ -52,5 +67,6 @@ export default configureStore({
     jeju: jeju.reducer,
     jeolla: jeolla.reducer,
     MetCity: MetCity.reducer,
+    data: data.reducer,
   },
 });

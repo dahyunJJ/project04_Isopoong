@@ -1,6 +1,6 @@
 import Pagination from "react-bootstrap/Pagination";
 
-function PaginationNum({
+function Paginations({
   setCurrentData,
   itemsPerPage,
   totalItems,
@@ -106,4 +106,4 @@ function PaginationNum({
   );
 }
 
-export default PaginationNum;
+export default Paginations;

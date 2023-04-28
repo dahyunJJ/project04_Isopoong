@@ -1,4 +1,4 @@
-function Facility() {
+function Visit() {
   return (
     <>
       <div>후기</div>
@@ -7,4 +7,4 @@ function Facility() {
   );
 }
 
-export default Facility;
+export default Visit;

@@ -279,20 +279,58 @@ body {
   padding: 0 1rem;
 }
 .areaCon {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   padding: 2rem;
   background-color: #fffffc80;
   border-radius: 16px;
 }
+.infoWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .areaCon_list {
   margin-top: 1rem;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   flex-grow: 1;
-  margin-left: 2rem;
+  margin-left: 4rem;
 }
-
+.areaCon_list li {
+  border-bottom: 1px dashed #48628450;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0;
+}
+.areaCon_list li:nth-of-type(6) {
+  display: flex;
+  align-items: flex-start;
+}
+.areaCon_list li > p {
+  width: calc(100% / 4);
+  text-align: center;
+}
+.areaCon_list li > span,
+.areaCon_list li div {
+  padding-left: 1rem;
+}
+.listTitle {
+  font-size: 1.75rem;
+  padding: 0 1rem;
+  position: relative;
+}
+.listTitle::before {
+  content: "";
+  border-left: 3px solid var(--point_c);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 3px;
+  height: 20%;
+  transform: translateY(-50%);
+}
+.areaCon_list p strong {
+  font-family: "DXHflM";
+  font-size: 1.2rem;
+}
 .NearbyArea {
   position: relative;
   margin-top: 4rem;

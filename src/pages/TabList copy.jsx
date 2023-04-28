@@ -1,71 +1,102 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import PaginationNum from "./PaginationNum";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Pagination from "react-bootstrap/Pagination";
 
 function TabList({ list }) {
-  // 추가
-  let [currentPage, setCurrentPage] = useState(1);
-  let [itemsPerPage] = useState(7);
-  const [currentData, setCurrentData] = useState(list.slice(0, itemsPerPage));
+  //
+  const [activePage, setActivePage] = useState(1);
+  const itemsPerPage = 7;
 
-  // const currentData = list.slice(indexOfFirstItem, indexOfLastItem);
+  const indexOfLastItem = activePage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentData = list.slice(indexOfFirstItem, indexOfLastItem);
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    const indexOfLastItem = pageNumber * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    setCurrentData(list.slice(indexOfFirstItem, indexOfLastItem));
-  };
+  const totalPages = Math.ceil(list.length / itemsPerPage);
+  const startIndex = (activePage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const pageData = list.slice(startIndex, endIndex);
+  console.log(pageData);
 
-  // 카테고리 분류
-  let exhibition = list.filter((a) => a["카테고리2"] === "전시/기념관");
-  let movie = list.filter((a) => a["카테고리2"] === "영화/연극/공연");
-  let tour = list.filter((a) => a["카테고리2"] === "관광지");
-  let scenicspots = list.filter((a) => a["카테고리2"] === "명승지");
+  const MAX_PAGES_TO_SHOW = 10; // 최대 페이지 수
+  const GROUP_SIZE = 10; // 그룹당 페이지 수
+  let pageGroups = [];
+  if (totalPages <= MAX_PAGES_TO_SHOW) {
+    // 페이지 수가 MAX_PAGES_TO_SHOW 이하인 경우에는 전체 페이지를 표시합니다.
+    for (let i = 1; i <= totalPages; i++) {
+      pageGroups.push(
+        <Pagination.Item
+          key={i}
+          active={i === activePage}
+          onClick={() => setActivePage(i)}
+        >
+          {i}
+        </Pagination.Item>
+      );
+    }
+  } else {
+    const activeGroup = Math.floor((activePage - 1) / GROUP_SIZE);
+    // 현재 그룹에서 시작하는 페이지
+    const startPage = activeGroup * GROUP_SIZE + 1;
+    // 현재 그룹에서 끝나는 페이지
+    const endPage = Math.min(startPage + GROUP_SIZE - 1, totalPages);
+
+    // 현재 그룹 이전의 페이지
+    const prevGroup = [];
+    if (activeGroup !== 0) {
+      prevGroup.push(
+        <Pagination.Item
+          key="prevGroup"
+          onClick={() => setActivePage((activeGroup - 1) * GROUP_SIZE + 1)}
+        >
+          {"이전"}
+        </Pagination.Item>
+      );
+    }
+
+    // 현재 그룹의 페이지
+    const currentGroup = [];
+    for (let i = startPage; i <= endPage; i++) {
+      currentGroup.push(
+        <Pagination.Item
+          key={i}
+          active={i === activePage}
+          onClick={() => setActivePage(i)}
+        >
+          {i}
+        </Pagination.Item>
+      );
+    }
+
+    // 현재 그룹 이후의 페이지
+    const nextGroup = [];
+    if (activeGroup !== Math.floor(totalPages / GROUP_SIZE)) {
+      nextGroup.push(
+        <Pagination.Item
+          key="nextGroup"
+          onClick={() => setActivePage((activeGroup + 1) * GROUP_SIZE + 1)}
+        >
+          {"다음"}
+        </Pagination.Item>
+      );
+    }
+
+    pageGroups = [...prevGroup, ...currentGroup, ...nextGroup];
+  }
 
   return (
     <>
       <section className="tabmenu">
         <div className="cateBtns">
-          <button
-            onClick={() => {
-              setCurrentData(list);
-            }}
-          >
-            전체
-          </button>
-          <button
-            onClick={() => {
-              setCurrentData(exhibition);
-            }}
-          >
-            전시/기념관
-          </button>
-          <button
-            onClick={() => {
-              setCurrentData(movie);
-            }}
-          >
-            영화/연극/공연
-          </button>
-          <button
-            onClick={() => {
-              setCurrentData(tour);
-            }}
-          >
-            관광지
-          </button>
-          <button
-            onClick={() => {
-              setCurrentData(scenicspots);
-            }}
-          >
-            명승지
-          </button>
+          <button>전체</button>
+          <button>전시/기념관</button>
+          <button>영화/연극/공연</button>
+          <button>관광지</button>
+          <button>명승지</button>
         </div>
         <div className="tabCon">
-          {currentData.map((item, i) => (
+          {pageData.map((item, i) => (
             <div className="tabList" key={i}>
               <span>{item["시도 명칭"]}</span>
               <span>{item["시설명"]}</span>
@@ -78,14 +109,21 @@ function TabList({ list }) {
               ></Link>
             </div>
           ))}
-          <PaginationNum
-            setCurrentData={setCurrentData}
-            itemsPerPage={itemsPerPage}
-            totalItems={list.length}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            onPageChange={handlePageChange}
-          />
+          <div>
+            <Pagination>
+              <Pagination.First onClick={() => setActivePage(1)} />
+              <Pagination.Prev
+                onClick={() => setActivePage(Math.max(activePage - 1, 1))}
+              />
+              {pageGroups}
+              <Pagination.Next
+                onClick={() =>
+                  setActivePage(Math.min(activePage + 1, totalPages))
+                }
+              />
+              <Pagination.Last onClick={() => setActivePage(totalPages)} />
+            </Pagination>
+          </div>
         </div>
       </section>
     </>
