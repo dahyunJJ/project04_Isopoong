@@ -7,13 +7,12 @@ import NearbyArea from "./NearbyArea";
 
 function Detail() {
   let data = useSelector((state) => state.data);
-  let { id } = useParams();
-  console.log(id);
+  let { urlname } = useParams();
 
   let detailItem = data.find((item) => {
-    return item["시설명"] === id;
+    return item["시설명"] === decodeURI(decodeURIComponent(urlname));
   });
-  console.log(detailItem);
+  // console.log(detailItem);
 
   return (
     <>
