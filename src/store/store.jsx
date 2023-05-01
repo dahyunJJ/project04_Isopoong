@@ -10,7 +10,7 @@ import jeollaData from "../data/jeollaData";
 import MetCityData from "../data/MetCityData";
 import hospitalData from "../data/hospitalData";
 
-let allLocaData = [
+let allLocalData = [
   ...seoulData,
   ...gyeonggiData,
   ...chungcheongData,
@@ -22,7 +22,7 @@ let allLocaData = [
 ];
 const data = createSlice({
   name: "data",
-  initialState: allLocaData,
+  initialState: allLocalData,
 });
 
 let seoul = createSlice({

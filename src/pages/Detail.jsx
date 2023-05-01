@@ -78,7 +78,7 @@ function Detail() {
           </div>
         </div>
         <NearbyArea aroundData={aroundData} />
-        <HospitalInfo />
+        <HospitalInfo detailItem={detailItem} />
       </section>
     </>
   );

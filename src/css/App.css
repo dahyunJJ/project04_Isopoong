@@ -324,7 +324,7 @@ body {
   top: 50%;
   left: 0;
   width: 3px;
-  height: 20%;
+  height: 40%;
   transform: translateY(-50%);
 }
 .areaCon_list p strong {

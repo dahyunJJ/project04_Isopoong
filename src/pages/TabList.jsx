@@ -12,8 +12,8 @@ function TabList({ list }) {
 
   const indexOfLastItem = activePage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const startIndex = (activePage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
+  // const startIndex = (activePage - 1) * itemsPerPage;
+  // const endIndex = startIndex + itemsPerPage;
 
   const [currentData, setCurrentData] = useState(list);
   const totalPages = Math.ceil(currentData.length / itemsPerPage);

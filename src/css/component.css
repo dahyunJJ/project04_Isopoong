@@ -165,15 +165,28 @@
 }
 .NearbyArea_list {
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: space-between;
+}
+.NearbyArea_list:hover span {
+  color: var(--btnColor2);
 }
 .NearbyArea_list span {
   width: calc(100% / 6);
   text-align: center;
 }
-
+.NearbyArea_list span::after,
+.Hospital_list span::after {
+  content: "";
+  border-bottom: 1px dashed #48628410;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 90%;
+  height: 1px;
+  transform: translateX(-50%);
+}
 .NearbyArea_list span:nth-of-type(3) {
   flex-grow: 1;
 }
@@ -189,6 +202,19 @@
 .HospitalInfo h2 {
   border: 1px solid var(--btnColor6);
   background-color: var(--btnColor6);
+}
+.Hospital_list {
+  position: relative;
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+.Hospital_list span {
+  width: calc(100% / 5);
+  text-align: center;
+}
+.Hospital_list span:nth-of-type(3) {
+  flex-grow: 1;
 }
 
 /* 모바일 레이아웃 영역 */

@@ -1,18 +1,31 @@
 import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import Pagination from "react-bootstrap/Pagination";
 
-function HospitalInfo() {
+function HospitalInfo({ detailItem }) {
+  console.log(detailItem);
   let hospital = useSelector((state) => state.hospital);
-  console.log(hospital);
+
+  //
+  let hospitalList = hospital.filter(
+    (a) =>
+      a.addr.split(" ")[0] === detailItem["시도 명칭"] &&
+      a.addr.split(" ")[1] === detailItem["시군구 명칭"]
+  );
+  console.log(hospitalList);
+
   return (
     <>
       <div className="HospitalInfo">
         <h2>근처 의료시설</h2>
-        <div className="Hospital_list">
-          <span>병원이름</span>
-          <span>병원주소</span>
-          <span>전화번호</span>
-          <span>홈페이지</span>
-        </div>
+        {hospitalList.map((item, i) => (
+          <div className="Hospital_list" key={i}>
+            <span>{item.clCdNm}</span>
+            <span>{item.yadmNm}</span>
+            <span>{item.addr}</span>
+            <span>{item.telno}</span>
+          </div>
+        ))}
       </div>
     </>
   );

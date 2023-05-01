@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Pagination from "react-bootstrap/Pagination";
 
 function NearbyArea({ aroundData }) {
-  // h2
+  // h2 시설명 바인딩
   let aroundItem = aroundData.find((item, i) => {
     return item.시설명 === aroundData[i].시설명;
   });
@@ -12,12 +12,10 @@ function NearbyArea({ aroundData }) {
 
   // 페이지네이션
   const [activePage, setActivePage] = useState(1);
-  const itemsPerPage = 7;
+  const itemsPerPage = 10;
 
   const indexOfLastItem = activePage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const startIndex = (activePage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
 
   const [currentData, setCurrentData] = useState(aroundData);
   const totalPages = Math.ceil(currentData.length / itemsPerPage);
