@@ -147,7 +147,9 @@ function TabList({ list }) {
                 <span>{item["전화번호"]}</span>
                 <span>{item["입장 가능 나이"]}</span>
                 <Link
-                  to={`/detail/${encodeURIComponent(item["시설명"])}`}
+                  to={`/detail/${encodeURI(
+                    encodeURIComponent(item["시설명"])
+                  )}`}
                   className="detailBtn"
                 ></Link>
               </div>

@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 
 function NearbyArea({ detailItem }) {
-  console.log(detailItem);
+  // console.log(detailItem);
   let data = useSelector((state) => state.data);
 
   let nearList = data.filter((a) => a["시도 명칭"] === data["시도 명칭"]);
-  console.log(nearList);
+  // console.log(nearList);
   return (
     <>
       <div className="NearbyArea">
