@@ -88,7 +88,7 @@ function NearbyArea({ aroundData }) {
   return (
     <>
       <div className="NearbyArea">
-        <h2>{`${aroundItem.시설명}`} 근처 문화시설</h2>
+        <h2>{`${aroundItem.시설명}`} 주변 문화시설</h2>
         {currentData.slice(indexOfFirstItem, indexOfLastItem).map((item, i) => (
           <div className="NearbyArea_list" key={i}>
             <span>{item["시도 명칭"]}</span>

@@ -11,9 +11,7 @@ import Detail from "./pages/Detail";
 
 function App() {
   let urlname = useLocation().pathname;
-  let decodename = decodeURI(decodeURIComponent(urlname));
   // console.log(urlname);
-  // console.log(decodename);
 
   return (
     <div className="App">

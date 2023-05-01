@@ -72,7 +72,7 @@ function Detail() {
                     <span>{detailItem["홈페이지"]}</span>
                     <p>※ 자세한 정보 및 예약 안내는 홈페이지에서 확인하세요!</p>
                   </div>
-                </li>{" "}
+                </li>
               </ul>
             </div>
           </div>
