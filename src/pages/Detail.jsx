@@ -10,9 +10,8 @@ function Detail() {
   let { id } = useParams();
 
   let detailItem = data.find((item) => {
-    return decodeURI(decodeURIComponent(item["시설명"])) === id;
+    return item["시설명"] === id;
   });
-  console.log(detailItem);
 
   return (
     <>

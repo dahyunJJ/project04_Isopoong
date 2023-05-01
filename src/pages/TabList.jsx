@@ -89,7 +89,6 @@ function TabList({ list }) {
   let movie = list.filter((a) => a["카테고리2"] === "영화/연극/공연");
   let tour = list.filter((a) => a["카테고리2"] === "관광지");
   let scenicspots = list.filter((a) => a["카테고리2"] === "명승지");
-  console.log(tour);
 
   return (
     <>
