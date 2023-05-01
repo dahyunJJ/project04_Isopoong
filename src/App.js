@@ -11,8 +11,9 @@ import Detail from "./pages/Detail";
 
 function App() {
   let urlname = useLocation().pathname;
-  // let decodename = decodeURI(decodeURIComponent(urlname));
-  console.log(urlname);
+  let decodename = decodeURI(decodeURIComponent(urlname));
+  // console.log(urlname);
+  // console.log(decodename);
 
   return (
     <div className="App">
@@ -22,7 +23,7 @@ function App() {
         <Route path="/" element={<Main />}></Route>
         <Route path="/facility" element={<Facility />}></Route>
         <Route path="/visit" element={<Visit />}></Route>
-        <Route path="/Detail/:id" element={<Detail />}></Route>
+        <Route path="/Detail/:decodename" element={<Detail />}></Route>
         <Route path="*" element={<div>404</div>}></Route>
       </Routes>
     </div>

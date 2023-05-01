@@ -1,4 +1,4 @@
-let item = [
+let hospitalData = [
   {
     addr: "인천광역시 부평구 동수로 56, (부평동)",
     clCd: "01",
@@ -11920,4 +11920,4 @@ let item = [
       "JDQ4MTg4MSM1MSMkMSMkMCMkODkkMzgxMzUxIzExIyQxIyQzIyQxMyQ0NjEwMDIjNDEjJDEjJDgjJDgz",
   },
 ];
-export default item;
+export default hospitalData;

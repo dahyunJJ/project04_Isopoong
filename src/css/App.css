@@ -266,7 +266,8 @@ body {
   position: relative;
 }
 .areaInfo h2,
-.NearbyArea h2 {
+.NearbyArea h2,
+.HospitalInfo h2 {
   position: absolute;
   top: -1rem;
   left: 0;
@@ -275,8 +276,7 @@ body {
   background-color: var(--btnColor5);
   border-radius: 16px 50px 50px 0;
   color: var(--basic_c);
-  width: 300px;
-  padding: 0 1rem;
+  padding: 0.25rem 1.5rem;
 }
 .areaCon {
   padding: 2rem;
@@ -330,18 +330,6 @@ body {
 .areaCon_list p strong {
   font-family: "DXHflM";
   font-size: 1.2rem;
-}
-.NearbyArea {
-  position: relative;
-  margin-top: 4rem;
-}
-.NearbyArea h2 {
-  border: 1px solid var(--btnColor8);
-  background-color: var(--btnColor8);
-}
-
-.NearbyArea_list {
-  background-color: #fffffc80;
 }
 
 /* 모바일 레이아웃 영역 */

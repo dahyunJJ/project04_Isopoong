@@ -4,16 +4,23 @@ import { Link } from "react-router-dom";
 
 import KakaoMap from "./KakaoMap";
 import NearbyArea from "./NearbyArea";
+import HospitalInfo from "./HospitalInfo";
 
 function Detail() {
   let data = useSelector((state) => state.data);
-  let { id } = useParams();
-  console.log(id);
+  let { decodename } = useParams();
+  // console.log(decodename);
 
   let detailItem = data.find((item) => {
-    return item["시설명"] === id;
+    return item.시설명 === decodename;
   });
-  console.log(detailItem);
+
+  // 해당지역 근처 문화시설 리스트
+  let aroundData = data.filter(
+    (a) =>
+      a["시도 명칭"] === detailItem["시도 명칭"] &&
+      a.법정읍면동명칭 === detailItem.법정읍면동명칭
+  );
 
   return (
     <>
@@ -29,7 +36,7 @@ function Detail() {
             <div className="infoWrap">
               <KakaoMap detailItem={detailItem} />
               <ul className="areaCon_list">
-                <h3 className="listTitle">{detailItem["시설명"]}</h3>
+                <h3 className="listTitle">{detailItem.시설명}</h3>
                 <li>
                   <p>주소</p>
                   <span>{detailItem["도로명주소"]}</span>
@@ -70,7 +77,8 @@ function Detail() {
             </div>
           </div>
         </div>
-        <NearbyArea detailItem={detailItem} />
+        <NearbyArea aroundData={aroundData} />
+        <HospitalInfo />
       </section>
     </>
   );

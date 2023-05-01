@@ -8,6 +8,7 @@ import gyeongsangData from "../data/gyeongsangData";
 import jejuData from "../data/jejuData";
 import jeollaData from "../data/jeollaData";
 import MetCityData from "../data/MetCityData";
+import hospitalData from "../data/hospitalData";
 
 let allLocaData = [
   ...seoulData,
@@ -57,6 +58,11 @@ let MetCity = createSlice({
   initialState: MetCityData,
 });
 
+let hospital = createSlice({
+  name: "hospital",
+  initialState: hospitalData,
+});
+
 export default configureStore({
   reducer: {
     seoul: seoul.reducer,
@@ -68,5 +74,6 @@ export default configureStore({
     jeolla: jeolla.reducer,
     MetCity: MetCity.reducer,
     data: data.reducer,
+    hospital: hospital.reducer,
   },
 });
