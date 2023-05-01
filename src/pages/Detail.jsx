@@ -8,11 +8,11 @@ import HospitalInfo from "./HospitalInfo";
 
 function Detail() {
   let data = useSelector((state) => state.data);
-  let { decodename } = useParams();
-  // console.log(decodename);
+  let { id } = useParams();
+  console.log(id);
 
   let detailItem = data.find((item) => {
-    return item.시설명 === decodename;
+    return item.시설명 === id;
   });
 
   // 해당지역 근처 문화시설 리스트
