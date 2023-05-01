@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/project04_Picnic/static/css/main.b3c9f373.css",
-    "main.js": "/project04_Picnic/static/js/main.ad0d03ad.js",
+    "main.css": "/project04_Picnic/static/css/main.34493956.css",
+    "main.js": "/project04_Picnic/static/js/main.b2882a3b.js",
     "static/js/787.37ade7aa.chunk.js": "/project04_Picnic/static/js/787.37ade7aa.chunk.js",
     "static/media/DXHflL.ttf": "/project04_Picnic/static/media/DXHflL.db17405d41f6c605922f.ttf",
     "static/media/DXHflB.ttf": "/project04_Picnic/static/media/DXHflB.a4efe1ddef2e36c000e7.ttf",
@@ -9,12 +9,12 @@
     "static/media/img_bg.jpg": "/project04_Picnic/static/media/img_bg.bfb36b7caba8e955badc.jpg",
     "static/media/img_bg2.jpg": "/project04_Picnic/static/media/img_bg2.bafbbe12304362d06ba1.jpg",
     "index.html": "/project04_Picnic/index.html",
-    "main.b3c9f373.css.map": "/project04_Picnic/static/css/main.b3c9f373.css.map",
-    "main.ad0d03ad.js.map": "/project04_Picnic/static/js/main.ad0d03ad.js.map",
+    "main.34493956.css.map": "/project04_Picnic/static/css/main.34493956.css.map",
+    "main.b2882a3b.js.map": "/project04_Picnic/static/js/main.b2882a3b.js.map",
     "787.37ade7aa.chunk.js.map": "/project04_Picnic/static/js/787.37ade7aa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3c9f373.css",
-    "static/js/main.ad0d03ad.js"
+    "static/css/main.34493956.css",
+    "static/js/main.b2882a3b.js"
   ]
 }
