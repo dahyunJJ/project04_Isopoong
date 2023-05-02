@@ -88,6 +88,18 @@ function TabList({ list }) {
   let tour = list.filter((a) => a["카테고리2"] === "관광지");
   let scenicspots = list.filter((a) => a["카테고리2"] === "명승지");
 
+  // 카테고리 버튼
+  let cateBtns = document.querySelectorAll(".cateBtns button");
+
+  cateBtns.forEach((item) => {
+    item.addEventListener("click", () => {
+      cateBtns.forEach((btn) => {
+        btn.classList.remove("on");
+      });
+      item.classList.add("on");
+    });
+  });
+
   return (
     <>
       <section className="tabmenu">

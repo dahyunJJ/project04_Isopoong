@@ -9,7 +9,7 @@ import HospitalInfo from "./HospitalInfo";
 function Detail() {
   let data = useSelector((state) => state.data);
   let { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   let detailItem = data.find((item) => {
     return item.시설명 === id;
@@ -21,6 +21,14 @@ function Detail() {
       a["시도 명칭"] === detailItem["시도 명칭"] &&
       a.법정읍면동명칭 === detailItem.법정읍면동명칭
   );
+
+  // top 버튼 함수
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
@@ -69,7 +77,19 @@ function Detail() {
                 <li>
                   <p>홈페이지</p>
                   <div>
-                    <span>{detailItem["홈페이지"]}</span>
+                    <span>
+                      {detailItem["홈페이지"] === "정보없음" ? (
+                        detailItem["홈페이지"]
+                      ) : (
+                        <a
+                          href={detailItem["홈페이지"]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {detailItem["홈페이지"]}
+                        </a>
+                      )}
+                    </span>
                     <p>※ 자세한 정보 및 예약 안내는 홈페이지에서 확인하세요!</p>
                   </div>
                 </li>
@@ -79,6 +99,20 @@ function Detail() {
         </div>
         <NearbyArea aroundData={aroundData} />
         <HospitalInfo detailItem={detailItem} />
+        <div className="detailFooter">
+          <div className="footerImg">
+            <img
+              src={`${process.env.PUBLIC_URL}/img/Flower_img2.png`}
+              alt="detailFooterImg"
+            />
+          </div>
+          <p className="rights">ⓒ 2023. Dahyun Jeong all rights reserved</p>
+        </div>
+        <div className="scroll__container">
+          <button id="top" onClick={scrollToTop} type="button">
+            Top
+          </button>
+        </div>
       </section>
     </>
   );

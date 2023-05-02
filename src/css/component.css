@@ -11,13 +11,13 @@
   /* border: 1px solid red; */
   display: block;
   position: fixed;
-  width: 800px;
-  height: 400px;
+  width: 840px;
+  height: 350px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
-  padding: 2rem;
+  padding: 1.5rem 0.5rem;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   background-image: url(../assets/img_bg2.jpg);
@@ -43,15 +43,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.mainModal .modalImgCon {
-  width: 100%;
+  margin-top: 0.5rem;
 }
 .mainModal .modalImgCon img {
   width: 100%;
 }
 .mainModal .modalText * {
-  margin: 1rem 0;
+  margin: 0.5rem;
 }
 .mainModal .modalText strong {
   font-family: "DXHflM";
@@ -74,6 +72,10 @@
   width: calc(80% / 5);
   padding: 0.75rem;
   color: var(--point_c);
+}
+.cateBtns button.on {
+  background-color: var(--point_c);
+  color: var(--basic_c);
 }
 .tabCon {
   border: 1px solid var(--point_c);
@@ -215,6 +217,10 @@
 }
 .Hospital_list span:nth-of-type(3) {
   flex-grow: 1;
+}
+.nullText {
+  text-align: center;
+  padding: 0.5rem 0;
 }
 
 /* 모바일 레이아웃 영역 */

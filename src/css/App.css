@@ -247,7 +247,6 @@ body {
 }
 
 .tab-content {
-  /* border: 1px solid blue; */
   margin-left: 360px;
 }
 
@@ -261,7 +260,6 @@ body {
 }
 
 .areaInfo {
-  /* border: 1px solid green; */
   margin-top: 2rem;
   position: relative;
 }
@@ -290,7 +288,6 @@ body {
 }
 .areaCon_list {
   margin-top: 1rem;
-  /* border: 1px solid green; */
   flex-grow: 1;
   margin-left: 4rem;
 }
@@ -330,6 +327,82 @@ body {
 .areaCon_list p strong {
   font-family: "DXHflM";
   font-size: 1.2rem;
+}
+
+/* Deatail 하단 */
+.detailFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 4rem;
+}
+.detailFooter .footerImg {
+  width: 40%;
+}
+.detailFooter .footerImg img {
+  width: 100%;
+}
+
+.scroll__container {
+  position: fixed;
+  right: 5%;
+  bottom: 10%;
+  z-index: 1;
+}
+#top {
+  padding: 0.5rem 0.5rem 0.25rem;
+  background-color: var(--point_c);
+  color: var(--basic_c);
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+#top:hover {
+  color: var(--btnColor2);
+  background-color: transparent;
+  border: 1px solid var(--btnColor2);
+}
+
+/* Visit 영역 */
+.visitTitle h2 {
+  font-size: 64px;
+}
+.visitReview {
+  border: 1px solid red;
+  width: calc(100% - 6rem);
+  margin: 1rem auto 0;
+}
+.visitReviewCon .swiper-slide {
+  width: 100%;
+  border-radius: 0.5rem;
+  background-color: #fffffc;
+}
+.visitReviewCon .swiper-slide .swiper-slide-imgCon {
+  border: 1px solid red;
+  width: calc(100% - 1rem);
+  height: 200px;
+  margin: 0.5rem auto;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.visitReviewCon .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.swiper-slide-contents > * {
+  border: 1px solid green;
+  margin: 0.25rem;
+}
+.swiper-slide-contents {
+  display: flex;
+  flex-direction: column;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--point_c) !important;
 }
 
 /* 모바일 레이아웃 영역 */
@@ -428,7 +501,7 @@ body {
   .hd .gnb {
     margin-top: 1rem;
   }
-  .hd .gnb .facilities,
+  .hd .gnb .facility,
   .hd .gnb .visit {
     font-size: 24px;
   }
