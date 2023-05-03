@@ -1,11 +1,27 @@
+import { useSelector } from "react-redux";
+import { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
+import Modal from "react-modal";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { Navigation } from "swiper";
-
 function Visit() {
+  let reviewData = useSelector((state) => state.review);
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const customStyles = {
+    overlay: { zIndex: 1000 },
+  };
+
+  let reviewItem = reviewData.find((item, i) => {
+    return item.id === reviewData[i].id;
+  });
+  console.log(reviewItem);
+
+  const [modalContent, setModalContent] = useState();
+
   return (
     <>
       <section className="visit mw">
@@ -24,29 +40,42 @@ function Visit() {
             modules={[Navigation]}
             className="mySwiper visitReviewCon"
           >
-            <SwiperSlide className="swiper-slide">
-              <div className="swiper-slide-imgCon">
-                <img
-                  src={`${process.env.PUBLIC_URL}/img/review_img1.jpg`}
-                  alt="review_img1"
-                />
-              </div>
-              <div className="swiper-slide-contents">
-                <span>title</span>
-                <span>name</span>
-                <span>rating</span>
-                <span>site</span>
-                <p>text</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
+            {reviewData.map((item) => (
+              <SwiperSlide
+                className="swiper-slide"
+                key={item.id}
+                onClick={() => setModalIsOpen(true)}
+              >
+                <div className="swiper-slide-imgCon">
+                  <img
+                    src={`${process.env.PUBLIC_URL}${item.img}`}
+                    alt="review_img1"
+                  />
+                  <span>크게보기</span>
+                </div>
+                <div className="swiper-slide-contents">
+                  <span>{item.title}</span>
+                  <span>{item.name}</span>
+                  <span>{item.rating}</span>
+                  <span>{item.site}</span>
+                  <p>{item.text}</p>
+                </div>
+              </SwiperSlide>
+            ))}
           </Swiper>
+        </div>
+        <Modal isOpen={modalIsOpen} style={customStyles}>
+          This is Modal content
+          <button onClick={() => setModalIsOpen(false)}>Modal close</button>
+        </Modal>
+        <div className="detailFooter">
+          <div className="footerImg">
+            <img
+              src={`${process.env.PUBLIC_URL}/img/Flower_img2.png`}
+              alt="detailFooterImg"
+            />
+          </div>
+          <p className="rights">ⓒ 2023. Dahyun Jeong all rights reserved</p>
         </div>
       </section>
     </>

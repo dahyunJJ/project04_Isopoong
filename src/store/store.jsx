@@ -9,6 +9,7 @@ import jejuData from "../data/jejuData";
 import jeollaData from "../data/jeollaData";
 import MetCityData from "../data/MetCityData";
 import hospitalData from "../data/hospitalData";
+import reviewData from "../data/reviewData";
 
 let allLocalData = [
   ...seoulData,
@@ -63,6 +64,11 @@ let hospital = createSlice({
   initialState: hospitalData,
 });
 
+let review = createSlice({
+  name: "review",
+  initialState: reviewData,
+});
+
 export default configureStore({
   reducer: {
     seoul: seoul.reducer,
@@ -75,5 +81,6 @@ export default configureStore({
     MetCity: MetCity.reducer,
     data: data.reducer,
     hospital: hospital.reducer,
+    review: review.reducer,
   },
 });

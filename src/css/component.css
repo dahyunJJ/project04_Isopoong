@@ -223,6 +223,12 @@
   padding: 0.5rem 0;
 }
 
+/* Visit 페이지 - reviewModal 영역 */
+.reviewModal {
+  width: 500px;
+  height: 500px;
+}
+
 /* 모바일 레이아웃 영역 */
 @media (max-width: 1000px) {
   .modal {
