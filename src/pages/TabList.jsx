@@ -109,6 +109,7 @@ function TabList({ list }) {
               setCurrentData(list);
               setActivePage(1);
             }}
+            className="on"
           >
             전체
           </button>

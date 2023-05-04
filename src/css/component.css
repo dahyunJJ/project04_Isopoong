@@ -12,7 +12,7 @@
   display: block;
   position: fixed;
   width: 840px;
-  height: 350px;
+  height: 380px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -62,7 +62,7 @@
   margin-top: 1rem;
 }
 .cateBtns {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 .cateBtns button {
   border-radius: 1rem 1rem 0 0;
@@ -224,9 +224,58 @@
 }
 
 /* Visit 페이지 - reviewModal 영역 */
-.reviewModal {
-  width: 500px;
+.ReactModal__Content.ReactModal__Content--after-open {
+  width: 800px;
   height: 500px;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  border-radius: 0.5rem !important;
+}
+.madalInfo {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.modalImgCon {
+  width: 60%;
+  height: 280px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.modalImgCon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.modalText {
+  /* border: 1px solid red; */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+.modalText span:nth-of-type(1) {
+  font-size: 1.25rem;
+  padding-bottom: 1rem;
+}
+.modalText span:nth-of-type(3) span {
+  color: var(--btnColor3);
+}
+.madalInfo p {
+  width: calc(100% - 2rem);
+  margin: 1rem 0;
+}
+.btnClose {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--point_c);
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 /* 모바일 레이아웃 영역 */
@@ -248,5 +297,14 @@
   .mainModal .modalText * {
     margin: 0.5rem 0;
     font-size: 0.75rem;
+  }
+  .modal {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 380px) {
+  .modal {
+    height: 70vh;
   }
 }

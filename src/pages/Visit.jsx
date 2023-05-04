@@ -15,12 +15,34 @@ function Visit() {
     overlay: { zIndex: 1000 },
   };
 
-  let reviewItem = reviewData.find((item, i) => {
-    return item.id === reviewData[i].id;
-  });
-  console.log(reviewItem);
+  // swiper navigation 버튼을 slide 영역 바깥으로 빼기 위한 함수
+  const swiperRef = useRef(null);
 
-  const [modalContent, setModalContent] = useState();
+  const handlePrevClick = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
+  const handleNextClick = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+  const params = {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  };
+
+  // 후기 카드 선택 시 modal 오픈
+  const [modalContent, setModalContent] = useState(reviewData);
+
+  const handleCardClick = (item) => {
+    setModalContent(item);
+    setModalIsOpen(true);
+  };
 
   return (
     <>
@@ -36,15 +58,18 @@ function Visit() {
             slidesPerView={4}
             spaceBetween={30}
             loop={true}
-            navigation={true}
-            modules={[Navigation]}
+            pagination={{
+              clickable: true,
+            }}
+            ref={swiperRef}
+            {...params}
             className="mySwiper visitReviewCon"
           >
             {reviewData.map((item) => (
               <SwiperSlide
                 className="swiper-slide"
                 key={item.id}
-                onClick={() => setModalIsOpen(true)}
+                onClick={() => handleCardClick(item)}
               >
                 <div className="swiper-slide-imgCon">
                   <img
@@ -63,10 +88,30 @@ function Visit() {
               </SwiperSlide>
             ))}
           </Swiper>
+          <div className="swiper-button-prev" onClick={handlePrevClick}></div>
+          <div className="swiper-button-next" onClick={handleNextClick}></div>
         </div>
         <Modal isOpen={modalIsOpen} style={customStyles}>
-          This is Modal content
-          <button onClick={() => setModalIsOpen(false)}>Modal close</button>
+          <button onClick={() => setModalIsOpen(false)} className="btnClose">
+            닫기 X
+          </button>
+          <div className="madalInfo">
+            <div className="modalImgCon">
+              <img
+                src={`${process.env.PUBLIC_URL}${modalContent.img}`}
+                alt="review_img1"
+              />
+            </div>
+            <div className="modalText">
+              <span>{modalContent.title}</span>
+              <span>성함: {modalContent.name}</span>
+              <span>
+                평점: <span>{modalContent.rating}</span>
+              </span>
+              <span>장소: {modalContent.site}</span>
+            </div>
+            <p>{modalContent.text}</p>
+          </div>
         </Modal>
         <div className="detailFooter">
           <div className="footerImg">

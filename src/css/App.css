@@ -145,16 +145,25 @@ body {
   width: 100%;
 }
 
-.nav-tabs {
+.tabCategory {
   border: none;
+  margin-bottom: 0 !important;
+}
+.nav-tabs {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 .nav-item {
-  width: calc(100% / 8 - 1rem);
+  /* width: calc(100% / 8 - 0.5rem); */
+  width: 180px;
   border-radius: 0.5rem;
+  margin-bottom: 0.25rem;
+
   overflow: hidden;
 }
+
 .nav-item:nth-of-type(1) {
   border: 2px solid var(--btnColor1);
 }
@@ -371,11 +380,13 @@ body {
 .visitReview {
   width: calc(100% - 6rem);
   margin: 1rem auto 0;
+  position: relative;
 }
 .visitReviewCon .swiper-slide {
   width: 100%;
   border-radius: 0.5rem;
   background-color: #fffffc;
+  cursor: pointer;
 }
 .swiper-slide-imgCon {
   width: calc(100% - 1rem);
@@ -409,8 +420,8 @@ body {
 }
 .swiper-slide:hover .swiper-slide-imgCon > span {
   opacity: 1;
-  bottom: 50%;
-  transform: translateY(50%);
+  bottom: 40%;
+  transform: translateY(40%);
 }
 .swiper-slide-contents > * {
   /* border: 1px solid green; */
@@ -440,8 +451,14 @@ body {
 }
 .swiper-button-prev,
 .swiper-button-next {
+  position: absolute !important;
   color: var(--point_c) !important;
-  /* display: none !important; */
+}
+.swiper-button-prev {
+  left: -70px !important;
+}
+.swiper-button-next {
+  right: -70px !important;
 }
 
 /* 모바일 레이아웃 영역 */
@@ -526,6 +543,10 @@ body {
     width: 60%;
     top: 0;
     right: -30%;
+  }
+
+  .nav-item {
+    width: 120px;
   }
 
   /* Detail 영역 */
