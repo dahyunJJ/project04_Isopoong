@@ -1,15 +1,15 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-import seoulData from "../data/seoulData";
-import gyeonggiData from "../data/gyeonggiData";
-import chungcheongData from "../data/chungcheongData";
-import gangwonData from "../data/gangwonData";
-import gyeongsangData from "../data/gyeongsangData";
-import jejuData from "../data/jejuData";
-import jeollaData from "../data/jeollaData";
-import MetCityData from "../data/MetCityData";
-import hospitalData from "../data/hospitalData";
-import reviewData from "../data/reviewData";
+import seoulData from "./seoulData";
+import gyeonggiData from "./gyeonggiData";
+import chungcheongData from "./chungcheongData";
+import gangwonData from "./gangwonData";
+import gyeongsangData from "./gyeongsangData";
+import jejuData from "./jejuData";
+import jeollaData from "./jeollaData";
+import MetCityData from "./MetCityData";
+import hospitalData from "./hospitalData";
+import reviewData from "./reviewData";
 
 let allLocalData = [
   ...seoulData,

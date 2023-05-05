@@ -10,13 +10,9 @@ import Visit from "./pages/Visit";
 import Detail from "./pages/Detail";
 
 function App() {
-  let urlname = useLocation().pathname;
-  // console.log(urlname);
-
   return (
     <div className="App">
-      <Header urlname={urlname} />
-
+      <Header />
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/facility" element={<Facility />}></Route>

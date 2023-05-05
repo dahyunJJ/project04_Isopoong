@@ -1,12 +1,10 @@
 import Pagination from "react-bootstrap/Pagination";
 
 function Paginations({
-  setCurrentData,
   itemsPerPage,
   totalItems,
   currentPage,
   setCurrentPage,
-  onPageChange,
 }) {
   const pageNumbers = [];
 

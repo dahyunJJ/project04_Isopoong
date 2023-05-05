@@ -15,6 +15,9 @@ function Visit() {
     overlay: { zIndex: 1000 },
   };
 
+  // 모달이 열릴 때, 스크린 리더가 모달 오픈 전에 렌더링된 컨텐츠를 읽지 않도록 appElement를 지정
+  Modal.setAppElement("#root");
+
   // swiper navigation 버튼을 slide 영역 바깥으로 빼기 위한 함수
   const swiperRef = useRef(null);
 
@@ -55,7 +58,7 @@ function Visit() {
         </div>
         <div className="visitReview">
           <Swiper
-            slidesPerView={4}
+            slidesPerView={1}
             spaceBetween={30}
             loop={true}
             pagination={{
@@ -63,6 +66,11 @@ function Visit() {
             }}
             ref={swiperRef}
             {...params}
+            breakpoints={{
+              1200: { slidesPerView: 4, spaceBetween: 30 },
+              960: { slidesPerView: 3, spaceBetween: 30 },
+              520: { slidesPerView: 2, spaceBetween: 20 },
+            }}
             className="mySwiper visitReviewCon"
           >
             {reviewData.map((item) => (
@@ -91,7 +99,11 @@ function Visit() {
           <div className="swiper-button-prev" onClick={handlePrevClick}></div>
           <div className="swiper-button-next" onClick={handleNextClick}></div>
         </div>
-        <Modal isOpen={modalIsOpen} style={customStyles}>
+        <Modal
+          isOpen={modalIsOpen}
+          style={customStyles}
+          appElement={document.getElementById("root")}
+        >
           <button onClick={() => setModalIsOpen(false)} className="btnClose">
             닫기 X
           </button>
@@ -110,8 +122,8 @@ function Visit() {
               </span>
               <span>장소: {modalContent.site}</span>
             </div>
-            <p>{modalContent.text}</p>
           </div>
+          <p className="modalText2">{modalContent.text}</p>
         </Modal>
         <div className="detailFooter">
           <div className="footerImg">

@@ -61,11 +61,36 @@ body {
   width: calc(100% / 2);
   font-size: 32px;
   color: var(--point_c);
+  position: relative;
+}
+.hd .gnb .facility:focus::after,
+.hd .gnb .visit:focus::after {
+  content: "";
+  border-bottom: 5px solid var(--point_c);
+  width: 160px;
+  height: 5px;
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Main 영역 */
 .main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   position: relative;
+}
+.mainTitle {
+  width: 340px;
+  margin-right: 1rem;
+}
+.mainTitle h2 {
+  font-size: 64px;
+}
+.mainTitle .mainText {
+  padding-bottom: 1rem;
 }
 .mainTitle .mainbtn {
   font-family: "DXHflL";
@@ -77,7 +102,6 @@ body {
   padding: 0.25rem 1rem;
 }
 .main .rights {
-  /* border: 1px solid red; */
   width: 100%;
   text-align: right;
   margin-top: 1.5rem;
@@ -88,9 +112,24 @@ body {
 .swiper {
   width: 100%;
 }
-
+.swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden.mySwiper.slideCon {
+  /* border: 1px solid red; */
+  height: 600px;
+  width: calc(100% - 360px - 1rem);
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+.imgCon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: -50%;
+  transform: translateY(50%);
+}
 .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
-  /* border: 5px solid dodgerblue; */
   height: 50px;
   width: 150px;
   left: auto;
@@ -122,6 +161,56 @@ body {
   width: 30%;
   top: -20%;
   right: -15%;
+}
+
+/* main 모달 */
+.modal {
+  /* border: 1px solid red; */
+  display: block;
+  position: fixed;
+  width: 840px;
+  height: 380px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  padding: 1.5rem 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  background-image: url(../assets/img_bg2.jpg);
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+.closeBtn {
+  color: var(--point_c);
+  font-family: "DXHflM";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.closeBtn span,
+.closeBtn i {
+  font-size: 1rem;
+}
+.mainModal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.mainModal .modalImgCon img {
+  width: 100%;
+}
+.mainModal .modalText * {
+  margin: 0.5rem;
+}
+.mainModal .modalText strong {
+  font-family: "DXHflM";
+  margin: 0;
 }
 
 /* 시설검색 영역 */
@@ -259,6 +348,99 @@ body {
   margin-left: 360px;
 }
 
+/* TabList 영역 */
+.tabmenu {
+  margin-top: 1rem;
+}
+.cateBtns {
+  margin-top: 1.25rem;
+}
+.cateBtns button {
+  border-radius: 1rem 1rem 0 0;
+  border: 1px solid var(--point_c);
+  border-bottom: transparent;
+  outline: none;
+  width: calc(80% / 5);
+  padding: 0.75rem;
+  color: var(--point_c);
+}
+.cateBtns button:hover,
+.cateBtns button:focus {
+  background-color: var(--point_c);
+  color: var(--basic_c);
+}
+
+.tabCon {
+  border: 1px solid var(--point_c);
+  height: 510px;
+  border-radius: 0 1rem 0 0;
+  padding: 1rem 0;
+}
+.tabList {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.tabList:hover {
+  background-color: #fffffc80;
+}
+.tabList span {
+  /* border: 1px solid red; */
+  width: calc(100% / 6);
+  text-align: center;
+  padding: 0.5rem 0;
+}
+.tabList span:nth-of-type(3) {
+  flex-grow: 1;
+}
+
+.detailBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Pagination 영역 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto 0;
+  --bs-pagination-focus-bg: none;
+  --bs-pagination-focus-box-shadow: none;
+}
+.page-item {
+  margin: 0;
+}
+.page-link {
+  background-color: transparent;
+  border: none;
+  color: var(--point_c);
+  padding: 0 0.5rem;
+}
+.pagination button,
+.page-item button {
+  color: var(--point_c);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0.25rem;
+}
+.page-item.active > .page-link,
+.page-link.active,
+.page-link.focus,
+.page-link.focus:hover {
+  z-index: 3;
+  color: var(--point_c);
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  font-weight: bold;
+}
+
 /* Detail 영역 */
 .breadcrumbs a {
   display: inline-block;
@@ -336,6 +518,84 @@ body {
 .areaCon_list p strong {
   font-family: "DXHflM";
   font-size: 1.2rem;
+}
+
+/* Detail - Map 영역 */
+#map {
+  margin-top: 1rem;
+  width: 500px;
+  height: 400px;
+}
+
+/* Detail -> 해당 지역 문화시설 리스트 */
+.NearbyArea,
+.HospitalInfo {
+  position: relative;
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: #fffffc80;
+  border-radius: 16px;
+}
+.NearbyArea h2 {
+  border: 1px solid var(--btnColor8);
+  background-color: var(--btnColor8);
+}
+.NearbyArea_list {
+  position: relative;
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+.NearbyArea_list:hover span {
+  color: var(--btnColor2);
+}
+.NearbyArea_list span {
+  width: calc(100% / 6);
+  text-align: center;
+}
+.NearbyArea_list span::after,
+.Hospital_list span::after {
+  content: "";
+  border-bottom: 1px dashed #48628410;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 90%;
+  height: 1px;
+  transform: translateX(-50%);
+}
+.NearbyArea_list span:nth-of-type(3) {
+  flex-grow: 1;
+}
+.aroundBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 근처 병원리스트 영역 */
+.HospitalInfo h2 {
+  border: 1px solid var(--btnColor6);
+  background-color: var(--btnColor6);
+}
+.Hospital_list {
+  position: relative;
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+.Hospital_list span {
+  width: calc(100% / 5);
+  text-align: center;
+}
+.Hospital_list span:nth-of-type(3) {
+  flex-grow: 1;
+}
+.nullText {
+  text-align: center;
+  padding: 0.5rem 0;
 }
 
 /* Deatail 하단 */
@@ -461,40 +721,87 @@ body {
   right: -70px !important;
 }
 
-/* 모바일 레이아웃 영역 */
-@media (min-width: 651px) {
-  .main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  .mainTitle {
-    width: 340px;
-    margin-right: 1rem;
-  }
-  .mainTitle h2 {
-    font-size: 64px;
-  }
-  .mainTitle .mainText {
-    padding-bottom: 1rem;
-  }
+/* Visit 페이지 - reviewModal 영역 */
+.ReactModal__Content.ReactModal__Content--after-open {
+  width: 860px;
+  height: 500px;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  border-radius: 0.5rem !important;
+}
+.madalInfo {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.modalImgCon {
+  width: 50%;
+  height: 280px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.modalImgCon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.modalText {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+.modalText > span:nth-of-type(1) {
+  font-size: 1.25rem;
+  padding-bottom: 1rem;
+}
+.modalText span:nth-of-type(3) span {
+  color: var(--btnColor3);
+}
+.modalText2 {
+  width: calc(100% - 2rem);
+  margin: 1rem 0;
+}
+.btnClose {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--point_c);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 
-  .swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden.mySwiper.slideCon {
-    /* border: 1px solid red; */
-    height: 600px;
-    width: calc(100% - 360px - 1rem);
-    border-radius: 2rem;
-    overflow: hidden;
-    position: relative;
+/* 모바일 레이아웃 영역 */
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 960px) {
+  .modal {
+    width: calc(100% - 2rem);
+    height: 200px;
   }
-  .imgCon img {
+  .mainModal {
+    width: 100%;
+    padding: 2rem 0;
+  }
+  .mainModal .modalImgCon {
+    width: 50%;
+    height: 200px;
+    margin: auto;
+  }
+  .mainModal .modalImgCon img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
-    position: absolute;
-    top: -50%;
-    transform: translateY(50%);
+  }
+  .mainModal .modalText * {
+    margin: 0.5rem 0;
+    font-size: 0.75rem;
+  }
+  .modal {
+    height: 60vh;
   }
 }
 

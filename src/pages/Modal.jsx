@@ -1,5 +1,3 @@
-import "../css/component.css";
-
 function Modal({ isOpen, onClose }) {
   return (
     <div className="modal" style={{ display: isOpen ? "block" : "none" }}>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Header({ urlname }) {
+function Header() {
   return (
     <header className="hd mw">
       <Link to="/" className="logo">
