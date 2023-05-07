@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Paginations from "./Paginations";
+import SearchModal from "./SearchModal";
 
 function TabList({ list }) {
   let [newlist, setNewlist] = useState([]);
@@ -70,7 +71,15 @@ function TabList({ list }) {
             명승지
           </button>
         </div>
+        <SearchModal />
         <div className="tabCon">
+          {/* <div className="tabConTitle">
+            <span>지역</span>
+            <span>시설명</span>
+            <span>주소</span>
+            <span>전화번호</span>
+            <span>입장가능나이</span>
+          </div> */}
           {currentData.map((item, i) => (
             <div className="tabList" key={i}>
               <span>{item["시도 명칭"]}</span>

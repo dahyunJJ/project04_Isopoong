@@ -351,6 +351,7 @@ body {
 /* TabList 영역 */
 .tabmenu {
   margin-top: 1rem;
+  position: relative;
 }
 .cateBtns {
   margin-top: 1.25rem;
@@ -363,6 +364,7 @@ body {
   width: calc(80% / 5);
   padding: 0.75rem;
   color: var(--point_c);
+  transition: 0.5s;
 }
 .cateBtns button:hover,
 .cateBtns button:focus {
@@ -376,6 +378,22 @@ body {
   border-radius: 0 1rem 0 0;
   padding: 1rem 0;
 }
+.tabConTitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.tabConTitle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed var(--point_c);
+}
 .tabList {
   width: 100%;
   display: flex;
@@ -385,12 +403,13 @@ body {
 .tabList:hover {
   background-color: #fffffc80;
 }
+.tabConTitle span,
 .tabList span {
-  /* border: 1px solid red; */
   width: calc(100% / 6);
   text-align: center;
   padding: 0.5rem 0;
 }
+.tabConTitle span:nth-of-type(3),
 .tabList span:nth-of-type(3) {
   flex-grow: 1;
 }
@@ -401,6 +420,93 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* search modal 영역 */
+.btnSearch {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  border: none;
+  outline: none;
+  background-color: var(--point_c);
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+}
+.fa-magnifying-glass {
+  display: none;
+}
+.fa-magnifying-glass,
+.searchText {
+  color: var(--basic_c);
+  padding: 0 0.25rem;
+}
+
+/* TabList - 검색 모달 영역 */
+.searchModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 60%;
+  background-color: var(--basic_c);
+  z-index: 5;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.searchModal.on {
+  display: flex;
+}
+.searchModal .searchInputBox {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.searchModal .inputInfo {
+  width: 100%;
+  font-size: 1.5rem;
+  /* text-align: center; */
+}
+.searchModal .searchInput {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--point_c);
+}
+.searchModal .searchList {
+  width: calc(100% - 4rem);
+  height: 360px;
+  overflow-y: scroll;
+  position: absolute;
+  top: 160px;
+}
+.searchModal .searchList p {
+  text-align: center;
+  padding-top: 5rem;
+}
+.searchModal .searchList .searchLink:hover .searchItem {
+  background-color: #48628480;
+}
+.searchModal .searchList .searchLink:hover span {
+  color: var(--basic_c);
+}
+.searchModal .searchList .searchItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+.searchModal .searchList .searchItem span {
+  width: calc(100% / 6);
+  text-align: center;
+}
+.searchModal .searchList .searchItem span:nth-of-type(3) {
+  flex-grow: 1;
 }
 
 /* Pagination 영역 */
