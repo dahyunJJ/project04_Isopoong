@@ -366,6 +366,10 @@ body {
   color: var(--point_c);
   transition: 0.5s;
 }
+.cateBtns button:first-child {
+  background-color: var(--point_c);
+  color: var(--basic_c);
+}
 .cateBtns button:hover,
 .cateBtns button:focus {
   background-color: var(--point_c);

@@ -26,6 +26,33 @@ function TabList({ list }) {
     } else setNewlist(list.filter((a) => a["카테고리2"] === category));
   }
 
+  // 카테고리 버튼 on 클래스 효과를 스크립트 함수로 처리
+  let navItem = document.querySelectorAll(".nav-item> button");
+  let catebtns = document.querySelectorAll(".cateBtns button");
+  let btnF = document.querySelectorAll(".cateBtns button:first-child");
+  // console.log(btnF);
+
+  navItem.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      catebtns.forEach((btn) => {
+        btn.style.cssText = `background-color: transparent; color: #486284; `;
+      });
+      btnF.forEach((btn2) => {
+        btn2.style.cssText = `background-color: #486284; color: #fffffc;`;
+      });
+    });
+  });
+
+  catebtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      console.log(e.target);
+      catebtns.forEach((btn) => {
+        btn.style.cssText = `background-color: transparent; color: #486284; `;
+      });
+      e.target.style.cssText = `background-color: #486284; color: #fffffc;`;
+    });
+  });
+
   return (
     <>
       <section className="tabmenu">
@@ -73,13 +100,6 @@ function TabList({ list }) {
         </div>
         <SearchModal />
         <div className="tabCon">
-          {/* <div className="tabConTitle">
-            <span>지역</span>
-            <span>시설명</span>
-            <span>주소</span>
-            <span>전화번호</span>
-            <span>입장가능나이</span>
-          </div> */}
           {currentData.map((item, i) => (
             <div className="tabList" key={i}>
               <span>{item["시도 명칭"]}</span>
