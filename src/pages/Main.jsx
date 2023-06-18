@@ -41,6 +41,7 @@ function Main() {
             disableOnInteraction: false,
           }}
           pagination={true}
+          loop={true}
           modules={[Autoplay, Pagination]}
           className="mySwiper slideCon"
         >

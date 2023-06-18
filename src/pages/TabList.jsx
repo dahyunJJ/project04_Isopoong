@@ -116,6 +116,7 @@ function TabList({ list }) {
               totalItems={newlist.length}
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
+              className="pagination"
             />
           </div>
         </div>

@@ -111,23 +111,19 @@ body {
 
 .swiper {
   width: 100%;
+  overflow: hidden;
 }
 .swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden.mySwiper.slideCon {
   /* border: 1px solid red; */
   height: 600px;
   width: calc(100% - 360px - 1rem);
   border-radius: 2rem;
-  overflow: hidden;
-  position: relative;
 }
 .imgCon img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  position: absolute;
-  top: -50%;
-  transform: translateY(50%);
 }
 .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
   height: 50px;
@@ -362,9 +358,11 @@ body {
   border-bottom: transparent;
   outline: none;
   width: calc(80% / 5);
-  padding: 0.75rem;
+  padding: 0.75rem 0.5rem;
   color: var(--point_c);
   transition: 0.5s;
+  white-space: nowrap;
+  text-align: center;
 }
 .cateBtns button:first-child {
   background-color: var(--point_c);
@@ -633,6 +631,7 @@ body {
 /* Detail - Map 영역 */
 #map {
   margin-top: 1rem;
+  padding-top: 20%;
   width: 500px;
   height: 400px;
 }
@@ -774,9 +773,6 @@ body {
   overflow: hidden;
   transition: 0.3s;
 }
-.swiper-slide:hover img {
-  transform: scale(1.1);
-}
 .swiper-slide-imgCon span {
   position: absolute;
   opacity: 0;
@@ -886,15 +882,30 @@ body {
 
 /* 모바일 레이아웃 영역 */
 @media (max-width: 1200px) {
+  .cateBtns button {
+    width: calc(80% / 5 -1rem);
+  }
+  .tabList span {
+    width: calc(100% / 5);
+  }
+  .tabCon .tabList span:last-of-type {
+    display: none;
+  }
 }
 
 @media (max-width: 960px) {
   .main {
     display: block;
   }
-  .main .mainTitle {
-    border: 1px solid red;
+  .main .slideCon {
+    margin-top: 1rem;
   }
+  .main
+    .swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden.mySwiper.slideCon {
+    width: 100%;
+    height: 500px;
+  }
+
   .modal {
     width: calc(100% - 2rem);
     height: 200px;
@@ -918,6 +929,37 @@ body {
   }
   .modal {
     height: 60vh;
+  }
+  .secTitle {
+    display: none;
+  }
+  .tab-content {
+    margin: auto;
+  }
+  .tabmenu .cateBtns button {
+    font-size: 0.9rem;
+  }
+
+  /* detail */
+  .detail .infoWrap {
+    flex-direction: column;
+  }
+  .detail .areaCon_list {
+    margin: 1rem auto 0;
+  }
+  .NearbyArea h2 {
+    font-size: 1.25rem;
+  }
+  .NearbyArea span {
+    width: calc(100% / 4 - 0.5rem);
+  }
+  .NearbyArea span:nth-of-type(5),
+  .HospitalInfo span:nth-of-type(3) {
+    display: none;
+  }
+  .HospitalInfo span {
+    width: calc(100% / 3 - 1rem);
+    /* white-space: nowrap; */
   }
 }
 
@@ -972,9 +1014,52 @@ body {
     width: 120px;
   }
 
+  .tabmenu {
+    margin-top: 3rem;
+  }
+  .tabmenu .cateBtns button {
+    width: calc(100% / 5 - 0.25rem);
+  }
+  .btnSearch {
+    top: -2.5rem;
+  }
+  .tabList span {
+    width: calc(100% / 4);
+  }
+  .tabCon .tabList span:nth-of-type(3) {
+    display: none;
+  }
+
   /* Detail 영역 */
   .areaCon {
     display: block;
+  }
+  #map {
+    width: 360px;
+    height: 280px;
+  }
+  .areaCon .listTitle {
+    font-size: 1.5rem;
+  }
+  .areaCon .areaCon_list li:last-of-type {
+    display: block;
+  }
+  .detailFooter {
+    flex-direction: column;
+    align-items: center;
+  }
+  .NearbyArea span {
+    width: 100%;
+  }
+  .NearbyArea span:nth-of-type(3) {
+    display: none;
+  }
+  .NearbyArea,
+  .HospitalInfo {
+    padding: 1rem 0.5rem;
+  }
+  .HospitalInfo span {
+    width: calc(100% / 2);
   }
 }
 @media (max-width: 400px) {
@@ -1011,5 +1096,32 @@ body {
   .main .rights {
     font-size: 1rem;
     padding: 1rem 0 0;
+  }
+  .tabmenu .cateBtns button {
+    border: 1px solid var(--point_c);
+    border-radius: 1rem;
+    width: calc(100% - 1rem);
+    margin-left: 0.5rem;
+  }
+  .tabCon {
+    border-radius: 1rem;
+    margin: 0.5rem;
+  }
+  .tabCon .tabList span {
+    width: 100%;
+  }
+  .tabCon .tabList span:nth-of-type(1),
+  .tabCon .tabList span:nth-of-type(4) {
+    display: none;
+  }
+
+  #map {
+    width: 300px;
+    height: 200px;
+  }
+  .NearbyArea span:nth-of-type(1),
+  .NearbyArea span:nth-of-type(4),
+  .HospitalInfo span:nth-of-type(4) {
+    display: none;
   }
 }
