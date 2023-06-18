@@ -889,6 +889,12 @@ body {
 }
 
 @media (max-width: 960px) {
+  .main {
+    display: block;
+  }
+  .main .mainTitle {
+    border: 1px solid red;
+  }
   .modal {
     width: calc(100% - 2rem);
     height: 200px;
