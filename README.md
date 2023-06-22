@@ -26,7 +26,7 @@
 > <img src="https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=Figma&logoColor=white"/> <img src="https://img.shields.io/badge/Font Awesome-528DD7?style=flat&logo=Font Awesome&logoColor=white"/> <br/>
 
 ### 이슈 발생 및 해결
-- 활용하고자 하는 데이터를 API로 불러오려 했으나 양이 너무 많아서 한번에 3000개 이상 불러오지 못하는 이슈가 발생했습니다. <br/> 그래서 함께 제공되는 CSV 파일로 다운받은 후, JSON 파일로 변환하는 작업을 거쳐 데이터를 활용했습니다.
+- 활용하고자 하는 데이터를 API로 불러오려 했으나 양이 너무 많아서 한번에 3000개 이상 불러오지 못하는 이슈가 발생했습니다. 그래서 함께 제공되는 CSV 파일로 다운받은 후, JSON 파일로 변환하는 작업을 거쳐 데이터를 활용했습니다.
 
 ```
 const fs = require('fs');
