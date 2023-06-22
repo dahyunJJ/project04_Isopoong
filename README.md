@@ -25,7 +25,35 @@
 > <img src="https://img.shields.io/badge/slack-4A154B?style=flat&logo=slack&logoColor=white"/> <img src="https://img.shields.io/badge/notion-000000?style=flat&logo=notion&logoColor=white"/> <br/>
 > <img src="https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=Figma&logoColor=white"/> <img src="https://img.shields.io/badge/Font Awesome-528DD7?style=flat&logo=Font Awesome&logoColor=white"/> <br/>
 
-### 약식 기획서 요약
+### 이슈 발생 및 해결
+- 활용하고자 하는 데이터를 API로 불러오려 했으나 양이 너무 많아서 한번에 3000개 이상 불러오지 못하는 이슈가 발생했습니다. <br/> 그래서 함께 제공되는 CSV 파일로 다운받은 후, JSON 파일로 변환하는 작업을 거쳐 데이터를 활용했습니다.
+
+```
+const fs = require('fs');
+const csv = require('csv-parser');
+
+const results = [];
+
+fs.createReadStream('변경할파일명.CSV')
+  .pipe(csv())
+  .on('data', (data) => {
+    results.push(data);
+  })
+  .on('end', () => {
+    const jsonString = JSON.stringify(results, null, 2);
+
+    // 파일 쓰기
+    fs.writeFile('data.json', jsonString, 'utf-8', (err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log('완료');
+      }
+    });
+  });
+```
+
+### 약식 기획서
 #### [📌 약식 기획서 링크](https://docs.google.com/presentation/d/1xqMjxz6jWLzUjv6CZ7LO_881BwjtM9TBecfHwJVGBpo/edit?usp=sharing)
 <img width="60%" src="https://github.com/dahyunJJ/project04_Picnic/assets/117347407/ce9255ab-4be3-43d8-ae83-895119f51a01">
 
